@@ -54,6 +54,8 @@ import org.slf4j.LoggerFactory;
 
 import java.time.LocalDateTime;
 
+import io.openems.edge.controller.ess.timeofusetariff;
+
 @Designate(ocd = Config.class, factory = true)
 @Component(//
 		name = "Deye.BatteryInverter", //
@@ -107,6 +109,9 @@ public class DeyeSunHybridImpl extends AbstractOpenemsModbusComponent implements
 
 	@Reference(policy = ReferencePolicy.DYNAMIC, policyOption = ReferencePolicyOption.GREEDY, cardinality = ReferenceCardinality.OPTIONAL)
 	private volatile Timedata timedata = null;
+
+	@Reference(policy = ReferencePolicy.DYNAMIC, policyOption = ReferencePolicyOption.GREEDY, cardinality = ReferenceCardinality.OPTIONAL)
+	private TimeOfUseController timeOfUseController;
 
 	private Config config;
 
